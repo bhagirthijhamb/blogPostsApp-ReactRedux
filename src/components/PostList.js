@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from  './../actions';
+import { fetchPosts, fetchPostsAndUsers } from  './../actions';
 import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
   componentDidMount(){
-    this.props.fetchPosts();
+    // this.props.fetchPosts();
+    this.props.fetchPostsAndUsers();
   }
 
   renderList () {
@@ -38,13 +39,13 @@ class PostList extends React.Component {
 // we will return a new object with property posts
 // this object will show up as the props object in our component
 const mapStateToProps = state => {
-  console.log(state)
+  // console.log(state)
 
   return { posts: state.posts }
 }
 
 // export default connect(null, { fetchPosts: fetchPosts }) (PostList);
-export default connect(mapStateToProps, { fetchPosts: fetchPosts }) (PostList);
+export default connect(mapStateToProps, { fetchPosts: fetchPosts, fetchPostsAndUsers }) (PostList);
 
 // In the console, we have two console logs
 // Whne our application is first loaded up in the rowser,all or our reducers run one initial time
