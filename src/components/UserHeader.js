@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchUser } from './../actions'
 
 class UserHeader extends React.Component {
+  // We dont want userHeader to fetch its own data
   // componentDidMount(){
   //   this.props.fetchUser(this.props.userId)
   // }
@@ -22,6 +23,7 @@ class UserHeader extends React.Component {
   }
 }
 
+// rather than finding the apropriate user inside the component, we find it inside the mapStateToProps
 const mapStateToProps = (state, ownProps) => {
   // console.log(state)
   // return { users: state.users }
